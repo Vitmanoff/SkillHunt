@@ -1,0 +1,74 @@
+body {
+    background-color: #121212;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center; /* Выравнивание по центру */
+    font-size: 36px;
+    color: #FF0000;
+}
+
+h2 {
+    text-align: center; /* Выравнивание по центру */
+    font-size: 28px;
+    color: #FF0000;
+}
+
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 20px auto; /* Добавлен отступ сверху */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+    color: #fff;
+    background-color: #444;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+th, td {
+    border: 1px solid #666; /* Параметр границы */
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #222;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+td table {
+    width: 100%;
+    background-color: #555;
+    table-layout: fixed;
+    margin: 0; /* Удален отступ */
+}
+
+td table th {
+    background-color: #333;
+}
+
+td table tr:nth-child(even) {
+    background-color: #666;
+}
+
+tr:nth-child(even) {
+    background-color: #333;
+}
+
+@media (max-width: 600px) {
+    table {
+        width: 100%;
+        margin: 10px 0 10px 0; /* отступ сверху для учёта баннера */
+    }
+
+    th, td {
+        padding: 5px;
+    }
+}

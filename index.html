@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>SkillHunt – Грайте разом, не випадково</title>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="Hcontainer">
+      <div class="logo">SkillHunt</div>
+      <nav class="nav">
+        <a href="#">Особливості</a>
+        <a href="#">Команда</a>
+        <a href="#">Контакти</a>
+      </nav>
+      <div class="actions">
+        <a href="#" class="btn">Увійти</a>
+        <a href="#" class="btn download">Завантажити</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>SkillHunt</h1>
+    <p>Платформа для пошуку ідеальних напарників по грі</p>
+    <button class="btn"
+      onclick="document.getElementById('subscribe').scrollIntoView({behavior:'smooth'})">Долучитись</button>
+  </section>
+
+  <section class="Mcontainer">
+    <h2>В чому проблема?</h2>
+    <ul>
+      <li>Токсичні або мовчазні гравці</li>
+      <li>Відсутність підбору за стилем гри, рівнем і мовою</li>
+      <li>Складно знайти постійного напарника</li>
+    </ul>
+
+    <h2>Як SkillHunt вирішує це</h2>
+    <ul>
+      <li>AI-підбір гравців за стилем і поведінкою</li>
+      <li>Оцінка токсичності та система репутації</li>
+      <li>Формування постійних команд</li>
+    </ul>
+
+    <h2>Як це працює</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <p>Створи свій геймер-профіль</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <p>Пошук гравців за фільтрами та вподобаннями</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <p>Грай, оцінюй і знаходь свою команду</p>
+      </div>
+    </div>
+
+    <h2>Наші фішки</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>AI-рекомендації</h3>
+        <p>Алгоритми враховують стиль гри, жанри, активність</p>
+      </div>
+      <div class="feature">
+        <h3>Система токсичності</h3>
+        <p>Оцінки після гри створюють індекс репутації</p>
+      </div>
+      <div class="feature">
+        <h3>Формування команд</h3>
+        <p>Можливість грати постійним складом, як справжня команда</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="subscribe" class="subscribe">
+    <h2>Запуск скоро</h2>
+    <p>Залиш email, щоб отримати запрошення першим</p>
+    <form id="subscribeForm">
+      <input type="email" name="email" placeholder="Твій Email" required>
+      <button type="submit">Надіслати</button>
+    </form>
+    <p id="thanksMessage" style="display:none; margin-top:15px; color:#aaf;">Дякуємо! Ваш email отримано.</p>
+  </section>
+
+  <script>
+    const form = document.getElementById('subscribeForm');
+    const thanksMessage = document.getElementById('thanksMessage');
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      thanksMessage.style.display = 'block';
+      form.reset();
+    });
+  </script>
+
+  <footer>
+    <div class="footer-links">
+      <h4>Продукт</h4>
+      <ul>
+        <li><a href="#">Завантажити</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Про компанію</h4>
+      <ul>
+        <li><a href="#">Про нас</a></li>
+        <li><a href="#">Вакансії</a></li>
+        <li><a href="#">Новини</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Ресурси</h4>
+      <ul>
+        <li><a href="#">Підтримка</a></li>
+        <li><a href="#">Блог</a></li>
+        <li><a href="#">Автори</a></li>
+        <li><a href="#">Розробники</a></li>
+        <li><a href="#">Зворотній зв'язок</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Політика</h4>
+      <ul>
+        <li><a href="#">Конфіденційність</a></li>
+        <li><a href="#">Умови використання</a></li>
+        <li><a href="#">Поради</a></li>
+        <li><a href="#">Ліцензії</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Слідкуйте за нами</h4>
+      <div class="social-media">
+        <ul>
+          <li><a href="https://www.instagram.com/vitmanoff"><img src="images/instagram.png" alt="Instagram icon"></a></li>
+          <li><a href="https://x.com/Vitmanoff"><img src="images/X.png" alt="Twitter icon"></a></li>
+          <li><a href="https://www.facebook.com/Vitmanoff"><img src="images/facebook.png" alt="Facebook icon"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copy">
+      &copy; 2025 SkillHunt. Всі права захищено.
+    </div>
+  </footer>
+
+</body>
+
+</html>
