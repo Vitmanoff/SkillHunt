@@ -1,7 +1,9 @@
- html {
+html {
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
- /* хедер */
+
+/* хедер */
 .site-header {
   color: white;
   padding: 15px 0;
@@ -25,10 +27,51 @@
   font-weight: bold;
 }
 
+/* Светлая тема: логотип */
+body.light-theme .logo {
+  color: #111111;
+}
+
 .nav a {
   color: white;
   text-decoration: none;
   margin: 0 10px;
+}
+
+body.light-theme .nav a {
+  color: #111111;
+}
+
+body.light-theme .nav a:hover {
+  text-decoration: underline;
+  color: #2563EB;
+}
+
+.theme-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  width: 64px;
+}
+
+.theme-button:hover {
+  transform: scale(1.1);
+}
+
+.theme-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
 }
 
 .actions .btn {
@@ -52,6 +95,20 @@
   color: #111;
 }
 
+/* Светлая тема: кнопки */
+body.light-theme .btn,
+body.light-theme .actions .btn {
+  background-color: #4F46E5;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+body.light-theme .btn:hover,
+body.light-theme .actions .btn:hover {
+  background-color: #3730A3;
+}
+
 @media (max-width: 768px) {
   .Hcontainer {
     flex-direction: column;
@@ -59,7 +116,7 @@
     text-align: center;
     gap: 15px;
   }
-  
+
   .nav {
     display: flex;
     flex-direction: column;
@@ -71,24 +128,45 @@
     padding: 5px 0;
   }
 
+  .theme-button img {
+    width: 64px;
+    height: 64px;
+  }
+
   .actions {
     display: flex;
+    align-items: center;
     justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
   }
-  
+
   .actions .btn {
     margin: 0;
   }
 }
-/* тело */
+
+/* Тело */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #121212;
-  color: #fff;
+  color: #dddddd;
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-theme {
+  background-color: #F9FAFB;
+  color: #222222;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4 {
+  color: #111111;
 }
 
 a {
@@ -96,11 +174,21 @@ a {
   text-decoration: none;
 }
 
+/* Светлая тема: ссылки */
+body.light-theme a {
+  color: #3B82F6;
+}
+
 a:hover {
   text-decoration: underline;
-  }
+}
 
-.Mcontainer {
+body.light-theme a:hover {
+  color: #2563EB;
+  text-decoration: underline;
+}
+
+.F-section {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 20px;
@@ -114,6 +202,11 @@ a:hover {
   align-items: center;
   text-align: center;
   padding: 0 20px;
+}
+
+/* Светлая тема: hero секция */
+body.light-theme .hero {
+  background-color: transparent;
 }
 
 .hero h1 {
@@ -144,7 +237,7 @@ a:hover {
 }
 
 h2 {
-  color: #FF0000;
+  color: #DC2626;
   font-size: 2rem;
   margin-bottom: 15px;
   text-align: center;
@@ -156,6 +249,12 @@ ul {
   max-width: 700px;
   margin: 0 auto 40px;
   padding-left: 0;
+}
+
+.S-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .steps {
@@ -201,6 +300,48 @@ ul {
   font-size: 1.3rem;
 }
 
+.reviews-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.reviews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.review {
+  background-color: #1e1e1e;
+  flex: 1 1 280px;
+  padding: 25px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review:hover {
+  transform: translateY(-5px);
+}
+
+.review blockquote {
+  font-style: italic;
+  color: #ddd;
+  margin: 0 0 15px;
+  line-height: 1.4;
+}
+
+.review .author {
+  text-align: right;
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
 .subscribe {
   background-color: #4f46e5;
   padding: 40px 20px;
@@ -239,6 +380,10 @@ ul {
   max-width: 100%;
 }
 
+body.light-theme .subscribe input[type="email"] {
+  border: 2px solid #111111;
+}
+
 .subscribe button {
   background-color: #000;
   color: white;
@@ -251,19 +396,48 @@ ul {
   flex: 0 0 auto;
 }
 
-  .subscribe button:hover {
+.subscribe button:hover {
   background-color: #222;
 }
 
+/* Светлая тема: кнопка подписки */
+body.light-theme .subscribe button {
+  background-color: #111111;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+body.light-theme .subscribe button:hover {
+  background-color: #333333;
+}
+
+/* Светлая тема: блоки */
+body.light-theme .step,
+body.light-theme .feature,
+body.light-theme .review,
+body.light-theme .subscribe {
+  background-color: #FFFFFF;
+  color: #111111;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.15);
+}
+
+/* Светлая тема: тексты */
+body.light-theme .review blockquote,
+body.light-theme .review .author,
+body.light-theme .subscribe p {
+  color: #222222;
+}
+
 @media (max-width: 600px) {
+
   .steps,
   .features {
-  flex-direction: column;
+    flex-direction: column;
   }
 
   .step,
   .feature {
-        flex: 1 1 100%;
+    flex: 1 1 100%;
   }
 
   .hero h1 {
@@ -284,6 +458,11 @@ footer {
   background-color: #121212;
 }
 
+body.light-theme footer {
+  background-color: #F9FAFB;
+  color: #222222;
+}
+
 .footer-links {
   flex: 1;
   max-width: 200px;
@@ -293,6 +472,12 @@ footer {
   margin-bottom: 12px;
   font-size: 16px;
   color: #FF0000;
+}
+
+/* Светлая тема: футер — заголовки и ссылки */
+body.light-theme .footer-links h4 {
+  color: #111111;
+  ;
 }
 
 .footer-links ul {
@@ -311,8 +496,22 @@ footer {
   transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
+body.light-theme a:hover {
+  color: #3730a3;
+}
+
+body.light-theme .footer-links a {
+  color: #222222;
+  transition: color 0.3s ease;
+}
+
 .footer-links a:hover {
   color: #4f46e5;
+  text-decoration: underline;
+}
+
+body.light-theme .footer-links a:hover {
+  color: #4F46E5;
   text-decoration: underline;
 }
 
@@ -324,11 +523,15 @@ footer {
 }
 
 .footer-links .social-media ul li img {
-  filter: invert(1);
+  filter: none;
   font-size: 14px;
   width: 28px;
   height: 28px;
   transition: transform 0.3s ease;
+}
+
+body:not(.light-theme) .footer-links .social-media ul li img {
+  filter: invert(1);
 }
 
 .footer-links .social-media ul li a:hover img {
@@ -342,20 +545,24 @@ footer {
   font-size: 14px;
 }
 
+body.light-theme .footer-copy {
+  color: #222222;
+}
+
 @media (max-width: 600px) {
   footer {
     flex-direction: column;
-    padding: 20px; 
+    padding: 20px;
   }
 
   .footer-links {
     max-width: 100%;
-    flex: none; 
-    margin-bottom: 10px; 
+    flex: none;
+    margin-bottom: 10px;
     text-align: center;
   }
 
   .footer-links .social-media ul {
-    justify-content: center; 
+    justify-content: center;
   }
 }

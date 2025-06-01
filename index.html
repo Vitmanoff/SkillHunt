@@ -4,7 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="SkillHunt — знайди ідеального напарника для гри без токсичності. AI-рекомендації, команди та репутація.">
+
+  <meta property="og:title" content="SkillHunt – Грайте разом, не випадково">
+  <meta property="og:description" content="Інтелектуальна платформа для пошуку напарників у грі">
+  <meta property="og:image" content="images/preview.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vitmanoff.github.io/SkillHunt/">
+
+  <link rel="icon" href="images/favicon.png" type="image/png">
+
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <script src="script.js" defer></script>
+
   <title>SkillHunt – Грайте разом, не випадково</title>
 </head>
 
@@ -14,13 +29,16 @@
     <div class="Hcontainer">
       <div class="logo">SkillHunt</div>
       <nav class="nav">
-        <a href="#">Особливості</a>
-        <a href="#">Команда</a>
-        <a href="#">Контакти</a>
+        <a href="#features">Особливості</a>
+        <a href="#team">Команда</a>
+        <a href="#contact">Контакти</a>
       </nav>
       <div class="actions">
-        <a href="#" class="btn">Увійти</a>
-        <a href="#" class="btn download">Завантажити</a>
+        <button id="themeToggle" class="theme-button" aria-label="Змінити тему">
+          <img id="themeIcon" src="images/moon.png" alt="Змінити тему">
+        </button>
+        <a href="javascript:void(0)" class="btn">Увійти</a>
+        <a href="#subscribe" class="btn download">Завантажити</a>
       </div>
     </div>
   </header>
@@ -28,11 +46,20 @@
   <section class="hero">
     <h1>SkillHunt</h1>
     <p>Платформа для пошуку ідеальних напарників по грі</p>
+    <p>SkillHunt — це інтелектуальна платформа для геймерів, яка допомагає знайти ідеального напарника, покращити
+      командну гру та отримувати задоволення від кожної сесії.</p>
     <button class="btn"
       onclick="document.getElementById('subscribe').scrollIntoView({behavior:'smooth'})">Долучитись</button>
   </section>
 
-  <section class="Mcontainer">
+  <section class="F-section">
+    <h2>Кому буде корисно?</h2>
+    <ul>
+      <li>Кіберспортсменам, які шукають напарників для тренувань</li>
+      <li>Казуальним гравцям, що хочуть грати без токсичності</li>
+      <li>Стрімерам для гри з підписниками</li>
+    </ul>
+
     <h2>В чому проблема?</h2>
     <ul>
       <li>Токсичні або мовчазні гравці</li>
@@ -46,25 +73,27 @@
       <li>Оцінка токсичності та система репутації</li>
       <li>Формування постійних команд</li>
     </ul>
+  </section>
 
+  <section class="S-section">
     <h2>Як це працює</h2>
     <div class="steps">
-      <div class="step">
+      <div class="step" data-aos="fade-right">
         <div class="step-number">1</div>
         <p>Створи свій геймер-профіль</p>
       </div>
-      <div class="step">
+      <div class="step" data-aos="fade-left">
         <div class="step-number">2</div>
         <p>Пошук гравців за фільтрами та вподобаннями</p>
       </div>
-      <div class="step">
+      <div class="step" data-aos="fade-up">
         <div class="step-number">3</div>
         <p>Грай, оцінюй і знаходь свою команду</p>
       </div>
     </div>
 
-    <h2>Наші фішки</h2>
-    <div class="features">
+    <h2 id="features">Наші фішки</h2>
+    <div class="features" data-aos="zoom-in">
       <div class="feature">
         <h3>AI-рекомендації</h3>
         <p>Алгоритми враховують стиль гри, жанри, активність</p>
@@ -80,6 +109,24 @@
     </div>
   </section>
 
+  <section class="reviews-section">
+    <h2>Відгуки після бета-тесту</h2>
+    <div class="reviews" data-aos="fade-up" data-aos-delay="100">
+      <div class="review">
+        <blockquote>“Знайшов команду за 2 дні. Кайф!”</blockquote>
+        <p class="author">— Олег, гравець CS2</p>
+      </div>
+      <div class="review">
+        <blockquote>“Нарешті гра без флейму. Дякую!”</blockquote>
+        <p class="author">— Ірина, гравчиня Dota 2</p>
+      </div>
+      <div class="review">
+        <blockquote>“Завдяки SkillHunt зібрали стаєрів за добу.”</blockquote>
+        <p class="author">— Макс, лідер Valorant-команди</p>
+      </div>
+    </div>
+  </section>
+
   <section id="subscribe" class="subscribe">
     <h2>Запуск скоро</h2>
     <p>Залиш email, щоб отримати запрошення першим</p>
@@ -87,60 +134,53 @@
       <input type="email" name="email" placeholder="Твій Email" required>
       <button type="submit">Надіслати</button>
     </form>
-    <p id="thanksMessage" style="display:none; margin-top:15px; color:#aaf;">Дякуємо! Ваш email отримано.</p>
+    <p id="thanksMessage" style="display:none; margin-top:15px;">Дякуємо! Ваш email отримано.</p>
   </section>
-
-  <script>
-    const form = document.getElementById('subscribeForm');
-    const thanksMessage = document.getElementById('thanksMessage');
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-      thanksMessage.style.display = 'block';
-      form.reset();
-    });
-  </script>
 
   <footer>
     <div class="footer-links">
       <h4>Продукт</h4>
       <ul>
-        <li><a href="#">Завантажити</a></li>
+        <li><a href="javascript:void(0)">Завантажити</a></li>
+        <li><a href="https://github.com/Vitmanoff/SkillHunt" target="_blank">Код сайту</a></li>
       </ul>
     </div>
     <div class="footer-links">
       <h4>Про компанію</h4>
       <ul>
-        <li><a href="#">Про нас</a></li>
-        <li><a href="#">Вакансії</a></li>
-        <li><a href="#">Новини</a></li>
+        <li><a href="javascript:void(0)">Про нас</a></li>
+        <li><a href="javascript:void(0)">Вакансії</a></li>
+        <li><a href="javascript:void(0)">Новини</a></li>
       </ul>
     </div>
     <div class="footer-links">
       <h4>Ресурси</h4>
       <ul>
-        <li><a href="#">Підтримка</a></li>
-        <li><a href="#">Блог</a></li>
-        <li><a href="#">Автори</a></li>
-        <li><a href="#">Розробники</a></li>
-        <li><a href="#">Зворотній зв'язок</a></li>
+        <li><a href="javascript:void(0)">Підтримка</a></li>
+        <li><a href="javascript:void(0)">Блог</a></li>
+        <li><a href="javascript:void(0)">Автори</a></li>
+        <li><a href="javascript:void(0)">Розробники</a></li>
+        <li><a href="javascript:void(0)">Зворотній зв'язок</a></li>
       </ul>
     </div>
     <div class="footer-links">
       <h4>Політика</h4>
       <ul>
-        <li><a href="#">Конфіденційність</a></li>
-        <li><a href="#">Умови використання</a></li>
-        <li><a href="#">Поради</a></li>
-        <li><a href="#">Ліцензії</a></li>
+        <li><a href="javascript:void(0)">Конфіденційність</a></li>
+        <li><a href="javascript:void(0)">Умови використання</a></li>
+        <li><a href="javascript:void(0)">Поради</a></li>
+        <li><a href="javascript:void(0)">Ліцензії</a></li>
       </ul>
     </div>
     <div class="footer-links">
       <h4>Слідкуйте за нами</h4>
       <div class="social-media">
         <ul>
-          <li><a href="https://www.instagram.com/vitmanoff"><img src="images/instagram.png" alt="Instagram icon"></a></li>
+          <li><a href="https://www.instagram.com/vitmanoff"><img src="images/instagram.png" alt="Instagram icon"></a>
+          </li>
           <li><a href="https://x.com/Vitmanoff"><img src="images/X.png" alt="Twitter icon"></a></li>
-          <li><a href="https://www.facebook.com/Vitmanoff"><img src="images/facebook.png" alt="Facebook icon"></a></li>
+          <li><a href="https://www.facebook.com/Vitmanoff"><img src="images/facebook.png" alt="Facebook icon"></a>
+          </li>
         </ul>
       </div>
     </div>
@@ -148,6 +188,11 @@
       &copy; 2025 SkillHunt. Всі права захищено.
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+  </script>
 
 </body>
 
